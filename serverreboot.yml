@@ -1,0 +1,23 @@
+---
+# create a new VM from a template
+
+- hosts: "{{ servername }}"
+  become: true
+  gather_facts: True
+  vars_files:
+    - group_vars/vcenter.yml
+
+  
+  vars:
+    temp_dir: /opt/linux/automation/tmp
+    playbook_msg_error: "The server was not rebooted correctly due to an error"
+    incident_msg: "There was an error rebooting {{ servername }}"
+    playbook_st: ERROR
+    reboot: True
+  
+  tasks:
+  - block:
+      - name: Execute role-server-reboot in order to reboot {{ servername }}
+        include_role:
+          name: role-server-reboot
+
