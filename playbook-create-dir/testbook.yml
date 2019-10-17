@@ -4,6 +4,6 @@
     file:
       path: /tmp/devops_directory
       state: directory
-      owner: root
-      group: root
+      owner: ansible
+      group: norbert
       mode: 0775
