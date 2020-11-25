@@ -6,4 +6,4 @@
       state: directory
       owner: ansible
       group: norbert
-      mode: 0775
+      mode: 0777
